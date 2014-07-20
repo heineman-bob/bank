@@ -17,7 +17,7 @@
   </bean>
    
   <!-- Scan classpath for annotations (eg: @Service, @Repository etc) -->
-  <context:component-scan base-package="com.gerrytan.pizzashop"/>
+  <context:component-scan base-package="com.bob.bank"/>
    
   <!-- JDBC Data Source. It is assumed you have MySQL running on localhost port 3306 with 
        username root and blank password. Change below if it's not the case -->
@@ -34,7 +34,7 @@
     <property name="dataSource" ref="myDataSource"/>
     <property name="packagesToScan">
       <array>
-        <value>com.gerrytan.pizzashop</value>
+        <value>com.bob.bank</value>
       </array>
     </property>
     <property name="hibernateProperties">
