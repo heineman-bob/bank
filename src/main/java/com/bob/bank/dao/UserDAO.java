@@ -15,20 +15,33 @@ public class UserDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	private Session session;
 
 	@Transactional
 	public List<User> findAll() {
-		Session session = sessionFactory.getCurrentSession();
+		session = sessionFactory.getCurrentSession();
 		List users = session.createQuery("from User").list();
 		return users;
 	}
 
 	@Transactional
-	public User findUser(String firstName) {
-		Session session = sessionFactory.getCurrentSession();
-		User user = (User) session
-				.createQuery("from User where User.firstName=" + firstName);
+	public User findUser(long id) {
+		session = sessionFactory.getCurrentSession();
+		User user = (User) session.createQuery(
+				"from User user where user.id=" + id).uniqueResult();
 		return user;
 	}
 
+	@Transactional
+	public void deleteUser(long id) {
+		session = sessionFactory.getCurrentSession();
+		User user = (User) session.load(User.class, id);
+		session.delete(user);
+	}
+
+	@Transactional
+	public void createUser(User newUser) {
+		session = sessionFactory.getCurrentSession();
+		session.save(newUser);
+	}
 }

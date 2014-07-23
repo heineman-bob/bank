@@ -18,10 +18,11 @@ CREATE TABLE `bank`.`user` (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `firstName` VARCHAR(45) NULL,
     `lastName` VARCHAR(45) NULL,
+    `username` VARCHAR(45) NULL,
     PRIMARY KEY (`id`));
 
 #Insert sandbox data
-INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`) VALUES ('1', 'Bob', 'Heineman');
-INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`) VALUES ('2', 'Jen', 'McCord');
-INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`) VALUES ('3', 'Veronica', 'Heineman');
-INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`) VALUES ('4', 'Mark', 'Heineman');
+INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`, `username`) VALUES ('1', 'Bob', 'Heineman', 'slmd2k3');
+INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`, `username`) VALUES ('2', 'Jen', 'McCord', 'hotcodegirl');
+INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`, `username`) VALUES ('3', 'Veronica', 'Heineman', 'vheineman');
+INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`, `username`) VALUES ('4', 'Mark', 'Heineman', 'mheineman3');
