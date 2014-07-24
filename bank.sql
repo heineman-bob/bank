@@ -1,5 +1,5 @@
 #Flush the database if it exists
-DROP DATABASE `bank`;
+DROP DATABASE IF EXISTS `bank`;
 
 
 #Create User for banking app
@@ -19,10 +19,48 @@ CREATE TABLE `bank`.`user` (
     `firstName` VARCHAR(45) NULL,
     `lastName` VARCHAR(45) NULL,
     `username` VARCHAR(45) NULL,
-    PRIMARY KEY (`id`));
+    PRIMARY KEY (id)
+ );
 
-#Insert sandbox data
+
+
+#Create the accounts table
+CREATE TABLE `bank`.`account`(
+   `id` BIGINT NOT NULL AUTO_INCREMENT,
+   `userId` BIGINT NOT NULL,
+   `balance` DECIMAL(12,2) NOT NULL,
+   `accountNumber` BIGINT NOT NULL,
+   `nickname` VARCHAR(100) NOT NULL,
+   PRIMARY KEY (id),
+   FOREIGN KEY (userId)
+       REFERENCES user(id)
+       ON UPDATE CASCADE ON DELETE CASCADE
+ );
+ 
+ 
+-- #Create the legder table
+-- CREATE TABLE `bank`.`ledger`(
+--    `id` BIGINT NOT NULL AUTO_INCREMENT,
+--    `accountId` BIGINT NOT NULL,
+--    `amount` DECIMAL(12,2),
+--    `date` DATETIME,
+--    PRIMARY KEY (id),
+--    FOREIGN KEY (accountId)
+--        REFERENCES account(id)
+--        ON UPDATE CASCADE ON DELETE CASCADE
+--    
+-- );
+ 
+ 
+ #user data
 INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`, `username`) VALUES ('1', 'Bob', 'Heineman', 'slmd2k3');
 INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`, `username`) VALUES ('2', 'Jen', 'McCord', 'hotcodegirl');
 INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`, `username`) VALUES ('3', 'Veronica', 'Heineman', 'vheineman');
 INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`, `username`) VALUES ('4', 'Mark', 'Heineman', 'mheineman3');
+
+ #account data
+ INSERT INTO `bank`.`account` (`id`, `userId`, `balance`, `accountNumber`, `nickname`) VALUES ('1', '1', 100.00, 1122334455, 'primary checking');
+ 
+ #ledger data
+ --INSERT INTO `bank`.`ledger` (`id`, `accountId`, `amount`, `date`) VALUES ('1', '1', 100.00, NOW());
+ 

@@ -1,3 +1,5 @@
 com/bob/bank/controllers/UserController.class
+com/bob/bank/dao/AccountDAO.class
+com/bob/bank/entities/Account.class
 com/bob/bank/dao/UserDAO.class
 com/bob/bank/entities/User.class
