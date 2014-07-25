@@ -19,29 +19,37 @@ public class UserDAO {
 
 	@Transactional
 	public List<User> findAll() {
-		session = sessionFactory.getCurrentSession();
-		List users = session.createQuery("from User").list();
-		return users;
+		setupSession();
+		return session.createQuery("from User").list();
 	}
 
 	@Transactional
 	public User findUser(long id) {
-		session = sessionFactory.getCurrentSession();
-		User user = (User) session.createQuery(
-				"from User user where user.id=" + id).uniqueResult();
-		return user;
+		setupSession();
+		return (User) session.createQuery("from User user where user.id=" + id)
+				.uniqueResult();
 	}
 
 	@Transactional
 	public void deleteUser(long id) {
-		session = sessionFactory.getCurrentSession();
+		setupSession();
 		User user = (User) session.load(User.class, id);
 		session.delete(user);
 	}
 
 	@Transactional
 	public void createUser(User newUser) {
-		session = sessionFactory.getCurrentSession();
+		setupSession();
 		session.save(newUser);
+	}
+
+	@Transactional
+	public void updateUser(User user) {
+		setupSession();
+		session.update(user);
+	}
+
+	public void setupSession() {
+		session = sessionFactory.getCurrentSession();
 	}
 }

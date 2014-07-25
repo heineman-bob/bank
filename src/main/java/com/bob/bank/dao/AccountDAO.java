@@ -17,19 +17,42 @@ public class AccountDAO {
 	private SessionFactory sessionFactory;
 	private Session session;
 
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Account> findAll(long userId) {
 		session = sessionFactory.getCurrentSession();
-		List accounts = session.createQuery(
-				"from Account account where account.userId=" + userId).list();
-		return accounts;
+		return session.createQuery(
+				"from Account as a where a.userId=" + userId)
+				.list();
 	}
 
 	@Transactional
 	public Account findAccount(long id) {
-		session = sessionFactory.getCurrentSession();
+		setupSession();
 		Account account = (Account) session.get(Account.class, id);
 		return account;
 	}
 
+	@Transactional
+	public void deleteAccount(long id) {
+		setupSession();
+		session.delete("id", id);
+	}
+
+	@Transactional
+	public Account createAccount(Account account) {
+		setupSession();
+		session.save(account);
+		return account;
+	}
+
+	@Transactional
+	public void updateAccount(Account account) {
+		setupSession();
+		session.update(account);
+	}
+
+	public void setupSession() {
+		session = sessionFactory.getCurrentSession();
+	}
 }

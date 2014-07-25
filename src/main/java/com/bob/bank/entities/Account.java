@@ -3,15 +3,12 @@ package com.bob.bank.entities;
 import java.io.IOException;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Entity
 @Table(name = "account", uniqueConstraints = { @UniqueConstraint(columnNames = "nickname") })
@@ -21,7 +18,7 @@ public class Account {
 	private float balance;
 	private String accountNumber;
 	private String nickName;
-	private User user;
+	private long userId;
 
 	@Id
 	@GeneratedValue
@@ -57,14 +54,12 @@ public class Account {
 		this.nickName = nickName;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "userId")
-	public User getUser() {
-		return this.user;
+	public long getUserId() {
+		return this.userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 
 	@Override

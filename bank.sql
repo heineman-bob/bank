@@ -38,18 +38,18 @@ CREATE TABLE `bank`.`account`(
  );
  
  
--- #Create the legder table
--- CREATE TABLE `bank`.`ledger`(
---    `id` BIGINT NOT NULL AUTO_INCREMENT,
---    `accountId` BIGINT NOT NULL,
---    `amount` DECIMAL(12,2),
---    `date` DATETIME,
---    PRIMARY KEY (id),
---    FOREIGN KEY (accountId)
---        REFERENCES account(id)
---        ON UPDATE CASCADE ON DELETE CASCADE
---    
--- );
+ #Create the transaction table
+ CREATE TABLE `bank`.`transaction`(
+    `id` BIGINT NOT NULL AUTO_INCREMENT,
+    `accountId` BIGINT NOT NULL,
+    `amount` DECIMAL(12,2),
+    `date` DATETIME,
+    PRIMARY KEY (id),
+    FOREIGN KEY (accountId)
+        REFERENCES account(id)
+        ON UPDATE CASCADE ON DELETE CASCADE
+    
+ );
  
  
  #user data
@@ -62,5 +62,5 @@ INSERT INTO `bank`.`user` (`id`, `firstName`, `lastName`, `username`) VALUES ('4
  INSERT INTO `bank`.`account` (`id`, `userId`, `balance`, `accountNumber`, `nickname`) VALUES ('1', '1', 100.00, 1122334455, 'primary checking');
  
  #ledger data
- --INSERT INTO `bank`.`ledger` (`id`, `accountId`, `amount`, `date`) VALUES ('1', '1', 100.00, NOW());
+ INSERT INTO `bank`.`transaction` (`id`, `accountId`, `amount`, `date`) VALUES ('1', '1', 100.00, NOW());
  

@@ -58,6 +58,19 @@ public class UserController {
 
 	}
 
+	@RequestMapping(method = RequestMethod.PUT)
+	public ResponseEntity<String> updateUser(@RequestBody String user,
+			UriComponentsBuilder builder) throws JsonParseException,
+			JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		User updatedUser = mapper.readValue(user, User.class);
+		HttpHeaders headers = new HttpHeaders();
+
+		userDAO.updateUser(updatedUser);
+		return new ResponseEntity<String>(updatedUser.toString(), headers,
+				HttpStatus.OK);
+	}
+
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<String> createUser(@RequestBody String user,
 			UriComponentsBuilder builder) throws JsonParseException,
@@ -66,15 +79,8 @@ public class UserController {
 		User newUser = mapper.readValue(user, User.class);
 		HttpHeaders headers = new HttpHeaders();
 
-		// if (userDAO.createUser(newUser)) {
 		userDAO.createUser(newUser);
 		return new ResponseEntity<String>(newUser.toString(), headers,
 				HttpStatus.OK);
-		// } else {
-		// return new ResponseEntity<String>(
-		// "Duplicate record found with this username please try a different one",
-		// headers, HttpStatus.CONFLICT);
-		// }
-
 	}
 }

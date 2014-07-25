@@ -1,19 +1,13 @@
 package com.bob.bank.entities;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Entity
 @Table(name = "user")
@@ -25,7 +19,7 @@ public class User {
 	private String lastName;
 	private String username;
 
-	private Set<Account> accounts = new HashSet<Account>(0);
+	// private Set<Account> accounts = new HashSet<Account>(0);
 
 	@Id
 	@GeneratedValue
@@ -59,16 +53,6 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	@JsonIgnore
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-	public Set<Account> getAccounts() {
-		return accounts;
-	}
-
-	public void setAccounts(Set<Account> accounts) {
-		this.accounts = accounts;
 	}
 
 	@Override

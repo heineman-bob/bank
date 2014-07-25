@@ -1,5 +1,9 @@
+com/bob/bank/controllers/TransactionController.class
+com/bob/bank/dao/TransactionDAO.class
 com/bob/bank/controllers/UserController.class
 com/bob/bank/dao/AccountDAO.class
 com/bob/bank/entities/Account.class
+com/bob/bank/entities/Transaction.class
+com/bob/bank/controllers/AccountController.class
 com/bob/bank/dao/UserDAO.class
 com/bob/bank/entities/User.class
