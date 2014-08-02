@@ -1,5 +1,6 @@
 /Users/haxor/Development/Java/bank/src/main/java/com/bob/bank/dao/AccountDAO.java
 /Users/haxor/Development/Java/bank/src/main/java/com/bob/bank/entities/Transaction.java
+/Users/haxor/Development/Java/bank/src/main/java/com/bob/bank/utilities/CORSFilter.java
 /Users/haxor/Development/Java/bank/src/main/java/com/bob/bank/controllers/TransactionController.java
 /Users/haxor/Development/Java/bank/src/main/java/com/bob/bank/entities/Account.java
 /Users/haxor/Development/Java/bank/src/main/java/com/bob/bank/entities/User.java

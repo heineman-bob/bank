@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [30/Jul/2014:22:26:22 -0700] "GET / HTTP/1.1" 404 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [30/Jul/2014:22:26:22 -0700] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [30/Jul/2014:22:26:32 -0700] "GET /bank/users HTTP/1.1" 404 949 http-bio-8080-exec-4 38
+0:0:0:0:0:0:0:1 - - [30/Jul/2014:22:26:36 -0700] "GET /bank/user HTTP/1.1" 200 306 http-bio-8080-exec-5 487
+199.59.104.40 - - [30/Jul/2014:22:33:00 -0700] "GET /bank/users HTTP/1.1" 404 949 http-bio-8080-exec-7 4
+199.59.104.40 - - [30/Jul/2014:22:33:00 -0700] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-9 0
+199.59.104.40 - - [30/Jul/2014:22:33:07 -0700] "GET /bank/user HTTP/1.1" 200 306 http-bio-8080-exec-10 14

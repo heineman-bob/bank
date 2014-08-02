@@ -1,0 +1,6 @@
+93.174.93.218 - - [01/Aug/2014:08:00:58 -0700] "GET / HTTP/1.1" 404 - http-bio-8080-exec-2 0
+42.117.1.145 - - [01/Aug/2014:09:17:57 -0700] "GET /manager/html HTTP/1.1" 404 - http-bio-8080-exec-1 0
+93.174.93.218 - - [01/Aug/2014:09:45:49 -0700] "GET / HTTP/1.1" 404 - http-bio-8080-exec-3 0
+82.138.16.125 - - [01/Aug/2014:12:32:18 -0700] "GET /manager/html HTTP/1.1" 404 - http-bio-8080-exec-2 0
+66.249.84.43 - - [01/Aug/2014:21:00:02 -0700] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-8 0
+66.249.84.43 - - [01/Aug/2014:21:00:02 -0700] "GET /bank/account/ HTTP/1.1" 405 1045 http-bio-8080-exec-9 10

@@ -7,6 +7,7 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.bob.bank.dao.UserDAO;
 import com.bob.bank.entities.User;
 
+@ComponentScan
 @RestController
 @RequestMapping("/user")
 public class UserController {

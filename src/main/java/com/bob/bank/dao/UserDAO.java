@@ -17,6 +17,7 @@ public class UserDAO {
 	private SessionFactory sessionFactory;
 	private Session session;
 
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<User> findAll() {
 		setupSession();
